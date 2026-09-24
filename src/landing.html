@@ -1235,8 +1235,11 @@ body{
           <span class="pb-sticker" aria-label="خصم 31 بالمائة"><img src="assets/badge-32.png" alt="خصم 31%" width="54" height="54"/></span>
         </div>
 
-                <div class="price-img">
-          <img src="assets/price-main.webp" alt="السعر 2,200 دج" width="1157" height="334"/>
+        <!-- السعر بالكود (بدل assets/price-main.webp) — للرجوع للصورة استبدل هذه الكتلة بالصورة -->
+        <div class="price-text">
+          <span class="price-spark" aria-hidden="true"><svg viewBox="0 0 26 40" fill="currentColor"><rect x="1" y="2" width="12" height="5" rx="2.5" transform="rotate(30 7 4.5)"/><rect x="0" y="17" width="13" height="5" rx="2.5"/><rect x="1" y="31" width="12" height="5" rx="2.5" transform="rotate(-30 7 33.5)"/></svg></span>
+          <span class="price-main" dir="ltr">2,200<span class="price-cur">دج</span></span>
+          <span class="price-spark flip" aria-hidden="true"><svg viewBox="0 0 26 40" fill="currentColor"><rect x="1" y="2" width="12" height="5" rx="2.5" transform="rotate(30 7 4.5)"/><rect x="0" y="17" width="13" height="5" rx="2.5"/><rect x="1" y="31" width="12" height="5" rx="2.5" transform="rotate(-30 7 33.5)"/></svg></span>
         </div>
         <div class="price-row">
           <div class="pb-save">
@@ -1245,9 +1248,8 @@ body{
             </span>
             <span class="pb-save-txt">توفير 1,000 دج</span>
           </div>
-          <div class="price-old-img">
-            <img src="assets/price-old.webp" alt="بدل 3,200 دج" width="395" height="295"/>
-          </div>
+          <span class="price-old-txt">3,200 دج</span>
+
         </div>
 <button type="button" class="btn-cta" id="cta1">اطلب الآن</button>
     </div>
