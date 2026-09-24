@@ -2017,8 +2017,19 @@ document.getElementById("orderForm").onsubmit = async (ev) => {
 </a>
 
 <div class="mobile-cta">
-  <button type="button" class="mobile-cta-btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth', block:'start'})">اطلب الآن</button>
+  <div class="mcta-wrap">
+    <div class="mcta-price">
+      <span class="mcta-now">2,200 دج</span>
+      <span class="mcta-was">3,200 دج</span>
+      <span class="mcta-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>58 ولاية</span>
+    </div>
+    <button type="button" class="mobile-cta-btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth', block:'start'})">
+      اطلب الآن
+      <span class="mcta-btn-sub">الدفع عند الاستلام</span>
+    </button>
+  </div>
 </div>
+
 
 <script>
 /* شريط «اطلب الآن» الثابت يختفي في حالتين ويعود عندما تزولان:
