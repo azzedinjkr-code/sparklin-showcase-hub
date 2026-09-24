@@ -507,7 +507,7 @@ select.field { appearance: none; -webkit-appearance: none; background-image: url
 
 
 /* WhatsApp FAB */
-.wa-fab { position: fixed; bottom: 84px; left: 16px; z-index: 40; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 999px; background: #25D366; color: #fff; opacity: .55; box-shadow: 0 8px 20px -8px rgba(37,211,102,.45), 0 0 0 1px rgba(255,255,255,.18) inset; transition: transform .2s, opacity .2s, bottom .3s var(--ease-out); }
+.wa-fab { position: fixed; bottom: calc(56px + env(safe-area-inset-bottom)); left: 16px; z-index: 40; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 999px; background: #25D366; color: #fff; opacity: .55; box-shadow: 0 8px 20px -8px rgba(37,211,102,.45), 0 0 0 1px rgba(255,255,255,.18) inset; transition: transform .2s, opacity .2s, bottom .3s var(--ease-out); }
 
 .wa-fab:hover, .wa-fab:focus-visible { opacity: 1; transform: scale(1.06); }
 
@@ -1022,8 +1022,8 @@ body{
 /* نسخة الصورة (المعتمدة) */
 .golden-badge--img{ padding: 0; border: 0; background: none; box-shadow: none; }
 
-.golden-badge--img img{ display: block; width: 250px; height: auto; border-radius: 7px;
-  filter: drop-shadow(0 4px 7px oklch(.3 .06 75 / .45)) drop-shadow(0 1px 2px oklch(.3 .06 75 / .3)); }
+.golden-badge--img img{ display: block; width: min(290px, 78vw); height: auto; border-radius: 0;
+  filter: drop-shadow(0 6px 10px oklch(.3 .06 75 / .32)); }
 
 
 /* الدفعة 50: عنوان البطل صار صورة العمل الفني (نفس مكان النص القديم) */
@@ -1161,9 +1161,9 @@ body{
 
 .mcta-price { display: flex; align-items: baseline; gap: 5px; padding-inline-start: 10px; flex: 0 0 auto; }
 
-.mcta-now { font-family: var(--font-display); font-weight: 900; font-size: 15.5px; color: var(--primary-deep); line-height: 1; }
+.mcta-now { font-family: var(--font-display); font-weight: 900; font-size: 16px; color: #0d6b3c; line-height: 1; }
 
-.mcta-was { font-size: 10.5px; font-weight: 700; color: #94795f; text-decoration: line-through; line-height: 1; }
+.mcta-was { font-size: 11px; font-weight: 800; color: #d64530; text-decoration: line-through; text-decoration-color: #d64530; text-decoration-thickness: 1.6px; line-height: 1; }
 
 .mcta-note { display: none; }
 
@@ -1226,7 +1226,7 @@ body{
     <div class="thumbs" id="thumbs"></div>
 
     <div class="hero slide">
-      <div class="golden-badge golden-badge--img"><img src="assets/badge-golden.jpg" alt="الأكثر مبيعاً - جديد 2026" width="250" height="41"/></div>
+      <div class="golden-badge golden-badge--img"><img src="/__l5e/assets-v1/501a8a96-add9-4685-8382-046a172683f0/badge-2026.png" alt="الأكثر مبيعاً - جديد 2026" width="1843" height="358"/></div>
       <h1 class="h1-img"><img src="assets/hero-title.webp" alt="عناية طبيعية ليدين ناعمتين — نظافة وترطيب برائحة طبيعية" width="1200" height="645"/></h1>
       <p class="short">مجموعة عناية متكاملة لليدين: غسول مرطب بمضخة عملية (500 مل) برائحة الجريب فروت المنعشة، مع صابونتين طبيعيتين بزيوت نباتية (الماندرين وإكليل الجبل + النعناع البري). رغوة كريمية تنظّف بعمق دون أن تجفف البشرة، وتترك اليدين ناعمتين برائحة تدوم.</p>
       <div class="price-box">
