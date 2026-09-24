@@ -1097,8 +1097,102 @@ body{
   .pb-save .pb-save-ico { width: 28px; height: 28px; }
 }
 
+/* ════════════════════════════════════════════════════════════════
+   الدفعة 52: السعر أصبح نصًّا بالكود (بدل الصور) — أوضح وأسرع وقابل للتعديل
+   ═══════════════════════════════════════════════════════════════ */
+.price-text {
+  margin: 4px auto 0; max-width: 392px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+
+.price-spark { flex: 0 0 auto; color: #a9531f; opacity: .9; }
+.price-spark svg { display: block; width: 26px; height: 40px; }
+.price-spark.flip { transform: scaleX(-1); }
+
+.price-main {
+  position: relative; display: inline-flex; align-items: baseline; gap: .12em;
+  font-family: var(--font-display); font-weight: 900; line-height: .95;
+  font-size: clamp(54px, 15.5vw, 78px); letter-spacing: -.01em;
+  background: linear-gradient(175deg, #b9743a 0%, #a85a25 34%, #8e441a 72%, #7c3a14 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 2px 0 rgba(255,255,255,.95))
+          drop-shadow(0 6px 10px rgba(109,53,29,.28));
+  padding-bottom: 10px;
+}
+
+.price-main .price-cur { font-size: .42em; font-weight: 900; margin-inline-start: .06em; }
+
+/* خط التسطير المنحني تحت الرقم (نفس لمسة التصميم الأصلي) */
+.price-main::after {
+  content: ""; position: absolute; inset-inline: 4%; bottom: 0; height: 12px;
+  background: no-repeat center/100% 100%
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 14'%3E%3Cpath d='M4 11C70 3 230 3 296 9' fill='none' stroke='%23964a1c' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* السعر القديم 3,200 دج — مشطوب بخط مائل كما في التصميم */
+.price-old-txt {
+  position: relative; flex: 0 0 auto;
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(19px, 5.2vw, 23px); color: #8a6a55;
+  padding: 2px 6px; white-space: nowrap;
+}
+
+.price-old-txt::after {
+  content: ""; position: absolute; left: -2px; right: -2px; top: 52%;
+  height: 3.5px; border-radius: 3px; background: #a9622c;
+  transform: rotate(-9deg); transform-origin: center;
+}
+
+@media (max-width: 360px) {
+  .price-text { gap: 4px; }
+  .price-spark svg { width: 20px; height: 32px; }
+}
+
+/* ════════ الشريط السفلي الثابت — نسخة مُحسَّنة للبيع ════════ */
+.mcta-wrap {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; max-width: 480px; margin-inline: auto;
+  border-radius: 999px; padding: 7px 8px 7px 7px;
+  background: linear-gradient(180deg, #fffaf1 0%, #f6ecda 100%);
+  border: 1.5px solid #e3cfa6;
+  box-shadow: 0 14px 30px -14px rgba(60,32,14,.55), inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+.mcta-price { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; padding-inline-start: 12px; flex: 0 0 auto; }
+
+.mcta-now { font-family: var(--font-display); font-weight: 900; font-size: 18px; color: var(--primary-deep); line-height: 1.05; }
+
+.mcta-was { font-size: 11.5px; font-weight: 700; color: #94795f; text-decoration: line-through; line-height: 1.05; }
+
+.mcta-note { display: flex; align-items: center; gap: 4px; font-size: 10.5px; font-weight: 800; color: #146b33; line-height: 1.05; margin-top: 1px; }
+
+.mcta-note svg { width: 12px; height: 12px; flex: 0 0 auto; }
+
+.mobile-cta .mobile-cta-btn {
+  flex: 1 1 auto; margin: 0; max-width: none;
+  padding: 13px 14px; font-size: 14.5px; line-height: 1.25;
+  display: flex; flex-direction: column; gap: 1px;
+  animation: mcta-beat 2.4s ease-in-out infinite;
+}
+
+.mobile-cta-btn .mcta-btn-sub { font-size: 10.5px; font-weight: 700; opacity: .88; }
+
+@keyframes mcta-beat {
+  0%, 92%, 100% { transform: scale(1); }
+  96%           { transform: scale(1.035); }
+}
+
+@media (prefers-reduced-motion: reduce) { .mobile-cta .mobile-cta-btn { animation: none; } }
+
+@media (max-width: 768px) { body { padding-bottom: calc(96px + env(safe-area-inset-bottom)); } }
+
+@media (max-width: 340px) {
+  .mcta-price { padding-inline-start: 8px; }
+  .mcta-now { font-size: 16px; }
+}
 
 </style>
+
 
 <link rel="stylesheet" href="assets/fonts.css"><link rel="icon" type="image/x-icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="favicon.png"><meta name="description" content="مجموعة العناية باليدين: غسول يد مرطب 500 مل + صابونتان طبيعيتان بزيوت نباتية، بسعر 2,200 دج بدل 3,200 دج. توصيل لكل ولايات الجزائر، الدفع عند الاستلام."><meta property="og:title" content="مجموعة العناية باليدين — 2,200 دج مع الدفع عند الاستلام"><meta property="og:description" content="غسول يد مرطب وصابونتان طبيعيتان بروائح الجريب فروت والماندرين والنعناع. توصيل لكل الولايات."><meta property="og:type" content="product">
 </head>
@@ -1141,8 +1235,11 @@ body{
           <span class="pb-sticker" aria-label="خصم 31 بالمائة"><img src="assets/badge-32.png" alt="خصم 31%" width="54" height="54"/></span>
         </div>
 
-                <div class="price-img">
-          <img src="assets/price-main.webp" alt="السعر 2,200 دج" width="1157" height="334"/>
+        <!-- السعر بالكود (بدل assets/price-main.webp) — للرجوع للصورة استبدل هذه الكتلة بالصورة -->
+        <div class="price-text">
+          <span class="price-spark" aria-hidden="true"><svg viewBox="0 0 26 40" fill="currentColor"><rect x="1" y="2" width="12" height="5" rx="2.5" transform="rotate(30 7 4.5)"/><rect x="0" y="17" width="13" height="5" rx="2.5"/><rect x="1" y="31" width="12" height="5" rx="2.5" transform="rotate(-30 7 33.5)"/></svg></span>
+          <span class="price-main" dir="ltr">2,200<span class="price-cur">دج</span></span>
+          <span class="price-spark flip" aria-hidden="true"><svg viewBox="0 0 26 40" fill="currentColor"><rect x="1" y="2" width="12" height="5" rx="2.5" transform="rotate(30 7 4.5)"/><rect x="0" y="17" width="13" height="5" rx="2.5"/><rect x="1" y="31" width="12" height="5" rx="2.5" transform="rotate(-30 7 33.5)"/></svg></span>
         </div>
         <div class="price-row">
           <div class="pb-save">
@@ -1151,9 +1248,8 @@ body{
             </span>
             <span class="pb-save-txt">توفير 1,000 دج</span>
           </div>
-          <div class="price-old-img">
-            <img src="assets/price-old.webp" alt="بدل 3,200 دج" width="395" height="295"/>
-          </div>
+          <span class="price-old-txt">3,200 دج</span>
+
         </div>
 <button type="button" class="btn-cta" id="cta1">اطلب الآن</button>
     </div>
@@ -1921,8 +2017,19 @@ document.getElementById("orderForm").onsubmit = async (ev) => {
 </a>
 
 <div class="mobile-cta">
-  <button type="button" class="mobile-cta-btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth', block:'start'})">اطلب الآن</button>
+  <div class="mcta-wrap">
+    <div class="mcta-price">
+      <span class="mcta-now">2,200 دج</span>
+      <span class="mcta-was">3,200 دج</span>
+      <span class="mcta-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>58 ولاية</span>
+    </div>
+    <button type="button" class="mobile-cta-btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth', block:'start'})">
+      اطلب الآن
+      <span class="mcta-btn-sub">الدفع عند الاستلام</span>
+    </button>
+  </div>
 </div>
+
 
 <script>
 /* شريط «اطلب الآن» الثابت يختفي في حالتين ويعود عندما تزولان:
