@@ -2131,5 +2131,30 @@ document.getElementById("orderForm").onsubmit = async (ev) => {
 })();
 </script>
 
+<div class="bs-switch" id="bsSwitch" aria-label="تجربة أنماط الشارة">
+  <button type="button" data-bs="1">ذهب لامع</button>
+  <button type="button" data-bs="2">نجوم التقييم</button>
+  <button type="button" data-bs="3">زجاج فاخر</button>
+</div>
+<script>
+(function(){
+  var sw = document.getElementById("bsSwitch");
+  if (!sw) return;
+  function set(n){
+    document.body.classList.remove("bs-1","bs-2","bs-3");
+    document.body.classList.add("bs-" + n);
+    sw.querySelectorAll("button").forEach(function(b){ b.classList.toggle("on", b.dataset.bs === String(n)); });
+    try { localStorage.setItem("badgeStyle", n); } catch(e){}
+  }
+  sw.addEventListener("click", function(e){
+    var b = e.target.closest("button[data-bs]");
+    if (b) set(b.dataset.bs);
+  });
+  var saved = "1";
+  try { saved = localStorage.getItem("badgeStyle") || "1"; } catch(e){}
+  set(saved);
+})();
+</script>
 </body>
+
 </html>
