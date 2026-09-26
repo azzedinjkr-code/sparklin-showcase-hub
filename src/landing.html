@@ -1191,40 +1191,10 @@ body{
   .mcta-now { font-size: 16px; }
 }
 
-/* ===== أنماط شارة الترويسة الفاخرة (3 خيارات) ===== */
-.badge-opt{ display: none; align-items: center; gap: 7px; border-radius: 999px;
+/* ===== شارة الترويسة: الزجاج الفاخر بنبضة زمردية ===== */
+.badge-opt{ display: inline-flex; align-items: center; gap: 7px; border-radius: 999px;
   font-size: 12.5px; font-weight: 800; line-height: 1; white-space: nowrap; }
-body.bs-1 .badge-opt.bo-gold,
-body.bs-2 .badge-opt.bo-stars,
-body.bs-3 .badge-opt.bo-glass{ display: inline-flex; }
-body.bs-1 .badge.badge-legacy,
-body.bs-2 .badge.badge-legacy,
-body.bs-3 .badge.badge-legacy{ display: none; }
 
-/* 1) الذهب المصقول مع لمعة دورية */
-.bo-gold{ position: relative; overflow: hidden; padding: 8px 15px; color: #6a4a15;
-  background: linear-gradient(160deg,#fffdf4 0%,#fdf2d6 45%,#f6e3b4 100%);
-  border: 1px solid #dcbc72;
-  box-shadow: inset 0 1px 0 #fffdf2, inset 0 -2px 4px rgba(158,116,34,.18),
-              0 3px 10px -5px rgba(140,101,25,.5); }
-.bo-gold .bo-ico{ width: 14px; height: 14px; color: #c99a33;
-  filter: drop-shadow(0 1px 0 #fff9e6); }
-.bo-gold::after{ content:""; position:absolute; top:0; bottom:0; width:38%;
-  background: linear-gradient(100deg, transparent, rgba(255,255,255,.9), transparent);
-  transform: translateX(-160%); animation: bo-shine 3.6s ease-in-out infinite; }
-@keyframes bo-shine{ 0%,72%{ transform: translateX(-160%);} 92%,100%{ transform: translateX(320%);} }
-
-/* 2) ختم الجودة مع نجوم التقييم */
-.bo-stars{ padding: 7px 14px; color: #5d4413; gap: 8px;
-  background: linear-gradient(180deg,#fffaee,#f7edd8);
-  border: 1px solid #e0c98f;
-  box-shadow: 0 0 0 3px rgba(224,201,143,.22), 0 4px 12px -7px rgba(120,88,20,.55); }
-.bo-stars .bo-stars-ico{ color:#e3a81f; letter-spacing: .5px; font-size: 12px;
-  text-shadow: 0 1px 1px rgba(255,255,255,.9); }
-.bo-stars .bo-rate{ font-weight:900; color:#8a6412; }
-.bo-stars .bo-sep{ opacity:.35; }
-
-/* 3) الزجاج الفاخر بنبضة زمردية */
 .bo-glass{ padding: 8px 14px; color: #2c4a3a;
   background: rgba(255,255,255,.55);
   backdrop-filter: blur(10px) saturate(1.3); -webkit-backdrop-filter: blur(10px) saturate(1.3);
@@ -1233,13 +1203,6 @@ body.bs-3 .badge.badge-legacy{ display: none; }
 .bo-glass .bo-pulse{ position: relative; width: 8px; height: 8px; border-radius: 999px;
   background: #16a34a; box-shadow: 0 0 0 0 rgba(22,163,74,.55); animation: bo-beat 1.9s ease-out infinite; }
 @keyframes bo-beat{ 70%{ box-shadow: 0 0 0 7px rgba(22,163,74,0);} 100%{ box-shadow: 0 0 0 0 rgba(22,163,74,0);} }
-
-/* مبدّل المعاينة (مؤقت) */
-.bs-switch{ position: fixed; z-index: 90; top: 10px; left: 10px; display: flex; gap: 6px;
-  padding: 6px; border-radius: 999px; background: rgba(28,22,14,.86); backdrop-filter: blur(6px); }
-.bs-switch button{ font: 700 11.5px/1 var(--font-arabic); color: #f6e7c4; padding: 7px 10px;
-  border-radius: 999px; background: rgba(255,255,255,.08); }
-.bs-switch button.on{ background: linear-gradient(180deg,#f3df9f,#cda050); color: #4a340c; }
 
 </style>
 
@@ -1255,9 +1218,6 @@ body.bs-3 .badge.badge-legacy{ display: none; }
       <a class="brand" href="/" dir="ltr" aria-label="ShopDZ">
         <img class="brand-logo" src="assets/logo-shopdz.png" alt="ShopDZ" width="136" height="40"/>
       </a>
-      <span class="badge badge-legacy" dir="rtl"><span class="dot" aria-hidden="true"></span>جديد · الأكثر مبيعاً</span>
-      <span class="badge-opt bo-gold" dir="rtl"><svg class="bo-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 18l2-9 4.5 3.5L12 5l2.5 7.5L19 9l2 9H3z"/></svg>الأكثر مبيعاً · جديد 2026</span>
-      <span class="badge-opt bo-stars" dir="rtl"><span class="bo-stars-ico">★★★★★</span><span class="bo-rate">4.9</span><span class="bo-sep">·</span>الأكثر طلباً</span>
       <span class="badge-opt bo-glass" dir="rtl"><span class="bo-pulse" aria-hidden="true"></span>متوفر الآن · الأكثر مبيعاً</span>
 
     </div>
@@ -2131,30 +2091,6 @@ document.getElementById("orderForm").onsubmit = async (ev) => {
 })();
 </script>
 
-<div class="bs-switch" id="bsSwitch" aria-label="تجربة أنماط الشارة">
-  <button type="button" data-bs="1">ذهب لامع</button>
-  <button type="button" data-bs="2">نجوم التقييم</button>
-  <button type="button" data-bs="3">زجاج فاخر</button>
-</div>
-<script>
-(function(){
-  var sw = document.getElementById("bsSwitch");
-  if (!sw) return;
-  function set(n){
-    document.body.classList.remove("bs-1","bs-2","bs-3");
-    document.body.classList.add("bs-" + n);
-    sw.querySelectorAll("button").forEach(function(b){ b.classList.toggle("on", b.dataset.bs === String(n)); });
-    try { localStorage.setItem("badgeStyle", n); } catch(e){}
-  }
-  sw.addEventListener("click", function(e){
-    var b = e.target.closest("button[data-bs]");
-    if (b) set(b.dataset.bs);
-  });
-  var saved = "1";
-  try { saved = localStorage.getItem("badgeStyle") || "1"; } catch(e){}
-  set(saved);
-})();
-</script>
 </body>
 
 </html>
